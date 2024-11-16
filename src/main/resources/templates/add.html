@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Czar Sztućców</title>
+  <link rel="stylesheet" th:href="@{/add.css}" />
+</head>
+
+<body>
+
+
+
+<a href="/">Strona główna</a>
+
+<a th:href="@{/clients/menu}">Menu</a>
+<a th:href="@{/clients/add}">Złóż zamówienie</a>
+<a th:href="@{/clients/opinions}">Opinie</a>
+<a href="/">Zaloguj się</a>
+
+
+<h1>Zarezerwuj stolik!!!</h1>
+<form th:action="@{/clients/add}" th:object="${client}" method="post">
+<label for="name">Imię</label>
+<input type="text" id="name" th:field="*{name}" placeholder="Imię:" required>
+<br>
+<label for="surname">Nazwisko</label>
+<input type="text" id="surname" th:field="*{surname}" placeholder="Nazwisko:" required>
+<br>
+<label for="email">Email:</label>
+<input type="email" id="email" th:field="*{email}" placeholder="Email:" required>
+<br>
+<label for="phoneNumber">Numer telefonu</label>
+<input type="tel" id="phoneNumber" th:field="*{phoneNumber}" placeholder="Numer telefonu:" required>
+<br>
+<label for="time">Godzina przybycia</label>
+<input type="time" id="time" th:field="*{time}" placeholder="Godzina przybycia: " required>
+<br>
+<label for="dishesAndBill">Wybierz posiłki</label>
+<select id="dishesAndBill" th:field="*{dishesAndBill}" multiple>
+  <option th:each="dish : ${dishesList}"
+          th:value="${dish}"
+          th:text="${dish.nameDishes} + ' - ' + ${dish.cost} + ' PLN'">
+  </option>
+</select>
+<br>
+  <div class="selected-dishes">
+    <h3>Wybrane posiłki</h3>
+    <ul id="selectedDishesList"></ul>
+
+  </div>
+  <button type="submit">Złóż zamówienie</button>
+</form>
+
+<script>
+
+
+  const dishesSelect = document.getElementById('dishesAndBill');
+  const selectedDishesList = document.getElementById('selectedDishesList');
+
+  dishesSelect.addEventListener('change', () => {
+
+    const selectedOption = dishesSelect.options[dishesSelect.selectedIndex];
+
+
+
+    const li = document.createElement('li');
+    li.textContent = selectedOption.textContent;
+
+
+    const removeButton = document.createElement('button');
+    removeButton.textContent = "Usuń";
+    removeButton.style.marginLeft = "10px";
+    removeButton.style.color = "red";
+    removeButton.style.border = "none";
+    removeButton.style.background = "none";
+    removeButton.style.cursor = "pointer";
+
+
+    removeButton.addEventListener('click', () => {
+      selectedDishesList.removeChild(li);
+    });
+
+
+    li.appendChild(removeButton);
+    selectedDishesList.appendChild(li);
+  });
+
+
+
+
+
+</script>
+</body>
+</html>

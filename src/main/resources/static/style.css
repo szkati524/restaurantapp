@@ -1,0 +1,79 @@
+   body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+          background-image: url('/images/restaurant.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+     }
+        a {
+        margin-right: 15px;
+        text-decoration:none;
+        color:orange;
+        }
+        a:hover{
+        text-decoration:underline;
+        }
+        h1.header{
+        color:red;
+        }
+comment-section{
+margin:0 auto;
+width: 80%;
+padding:20px;
+border:1px solid #ddd;
+border-radius: 10px;
+background-color: #f9f9f9;
+}
+#commentForm {
+  margin-bottom: 20px;
+}
+
+#commentForm input,
+#commentForm textarea {
+  width: 100%;
+  max-width: 400px; /* Maksymalna szerokość pól */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul#commentsList {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul#commentsList li {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+ul#commentsList li button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+ul#commentsList li button:hover {
+  background-color: darkred;
+}
+

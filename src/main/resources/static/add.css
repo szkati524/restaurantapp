@@ -1,0 +1,60 @@
+  body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+          background-image: url('/images/restaurant.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+   }
+   form{
+   max-width:400px;
+   margin:0 auto;
+   }
+   form label {
+   display:block;
+   margin-bottom:5px;
+   font-weight:bold;
+   }
+   form input, form select, form button{
+   width:100%;
+   padding:10px;
+   margin-bottom:15px;
+   border:1px solid black;
+   border-radius: 5px;
+   box-sizing: border-box;
+   }
+   form button {
+   background-color:red;
+   color:white;
+   border:none;
+   cursor:pointer;
+   }
+   form button:hover{
+   background-color:gray;
+   }
+   h1 {
+   text-align:center;
+   }
+   a {
+   margin-right: 15px;
+   text-decoration:none;
+   color:orange;
+   }
+   a:hover{
+   text-decoration:underline;
+   }
+
+            .selected-dishes {
+              margin-top: 20px;
+            }
+            .selected-dishes ul {
+              list-style-type: none;
+              padding: 0;
+            }
+            .selected-dishes ul li {
+              background: #f8f8f8;
+              padding: 10px;
+              margin-bottom: 5px;
+              border: 1px solid #ddd;
+            }
+

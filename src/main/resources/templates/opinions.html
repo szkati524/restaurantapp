@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Czar Sztućców</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+
+<body>
+<a href="/">Strona główna</a>
+<a th:href="@{/clients/menu}">Menu</a>
+<a th:href="@{/clients/add}">Złóż zamówienie</a>
+<a href="/">Opinie</a>
+<a href="/">Zaloguj się</a>
+
+<h1 class="start">Czar Sztućców</h1>
+
+
+
+<section class="comments-section">
+  <h2>Dodaj swój komentarz</h2>
+  <form id="commentForm">
+    <label for="nickname">Nick:</label>
+    <input type="text" id="nickname" placeholder="Twój nick" required>
+    <br>
+    <label for="comment">Komentarz:</label>
+    <textarea id="comment" placeholder="Twój komentarz" required></textarea>
+    <br>
+    <button type="submit">Dodaj komentarz</button>
+  </form>
+  <h3>Opinie użytkowników</h3>
+  <ul id="commentsList">
+    <!-- Komentarze będą tutaj dynamicznie dodawane -->
+  </ul>
+</section>
+
+<script>
+
+    const commentForm = document.getElementById('commentForm');
+    const commentsList = document.getElementById('commentsList');
+
+
+    commentForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+
+      const nickname = document.getElementById('nickname').value.trim();
+      const comment = document.getElementById('comment').value.trim();
+
+
+      if (nickname && comment) {
+        // Utworzenie nowego elementu listy
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${nickname}:</strong> ${comment}
+                        <button class="delete-btn">Usuń</button>`;
+
+
+        const deleteButton = li.querySelector('.delete-btn');
+        deleteButton.addEventListener('click', function() {
+          commentsList.removeChild(li);
+        });
+
+
+        commentsList.appendChild(li);
+
+
+        commentForm.reset();
+      }
+    });
+  </script>
+</body>
+</html>
